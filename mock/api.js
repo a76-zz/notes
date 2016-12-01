@@ -1,13 +1,15 @@
-var jsonServer = require('json-server')
+var jsonServer = require('json-server');
+var path = require('path');
 
 // Returns an Express server
-var server = jsonServer.create()
+var server = jsonServer.create();
 
 // Set default middlewares (logger, static, cors and no-cache)
-server.use(jsonServer.defaults())
+server.use(jsonServer.defaults());
 
-var router = jsonServer.router('db.json')
-server.use(router)
 
-console.log('Listening at 4000')
-server.listen(4000)
+var router = jsonServer.router(path.join(__dirname, 'db.json'));
+server.use(router);
+
+console.log('Listening at 4000');
+server.listen(4000);

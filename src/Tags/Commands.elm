@@ -40,10 +40,7 @@ save tag =
     saveRequest tag
         |> Http.send OnSave
 
-
-
 -- DECODERS
-
 
 collectionDecoder : Decode.Decoder (List Tag)
 collectionDecoder =
@@ -52,10 +49,8 @@ collectionDecoder =
 
 memberDecoder : Decode.Decoder Tag
 memberDecoder =
-    Decode.map3 Tag
+    Decode.map Tag
         (field "id" Decode.string)
-        (field "id" Decode.string)
-        (field "id" Decode.int)
 
 
 memberEncoded : Tag -> Encode.Value

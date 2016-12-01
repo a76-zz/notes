@@ -9386,11 +9386,10 @@
 		return A2(_evancz$url_parser$UrlParser$customParam, name, _evancz$url_parser$UrlParser$intParamHelp);
 	};
 
-	var _user$project$Tags_Models$new = {id: '0', name: '', level: 1};
-	var _user$project$Tags_Models$Tag = F3(
-		function (a, b, c) {
-			return {id: a, name: b, level: c};
-		});
+	var _user$project$Tags_Models$new = {id: 'News'};
+	var _user$project$Tags_Models$Tag = function (a) {
+		return {id: a};
+	};
 
 	var _user$project$Tags_Messages$OnSave = function (a) {
 		return {ctor: 'OnSave', _0: a};
@@ -9470,12 +9469,10 @@
 		};
 		return _elm_lang$core$Json_Encode$object(list);
 	};
-	var _user$project$Tags_Commands$memberDecoder = A4(
-		_elm_lang$core$Json_Decode$map3,
+	var _user$project$Tags_Commands$memberDecoder = A2(
+		_elm_lang$core$Json_Decode$map,
 		_user$project$Tags_Models$Tag,
-		A2(_elm_lang$core$Json_Decode$field, 'id', _elm_lang$core$Json_Decode$string),
-		A2(_elm_lang$core$Json_Decode$field, 'id', _elm_lang$core$Json_Decode$string),
-		A2(_elm_lang$core$Json_Decode$field, 'id', _elm_lang$core$Json_Decode$int));
+		A2(_elm_lang$core$Json_Decode$field, 'id', _elm_lang$core$Json_Decode$string));
 	var _user$project$Tags_Commands$collectionDecoder = _elm_lang$core$Json_Decode$list(_user$project$Tags_Commands$memberDecoder);
 	var _user$project$Tags_Commands$saveUrl = function (tagId) {
 		return A2(_elm_lang$core$Basics_ops['++'], 'http://localhost:4000/tags/', tagId);

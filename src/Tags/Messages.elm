@@ -9,3 +9,4 @@ type Msg
     | ShowTags
     | ShowTag TagId
     | OnSave (Result Http.Error Tag)
+    | AddTag Tag

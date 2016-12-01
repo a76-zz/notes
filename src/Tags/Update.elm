@@ -18,6 +18,9 @@ updateTag updatedTag tags =
         List.map select tags
 
 
+addTag : Tag -> List Tag -> List Tag
+addTag newTag tags = newTag :: tags
+
 update : Msg -> List Tag -> ( List Tag, Cmd Msg )
 update message tags =
     case message of
@@ -33,6 +36,8 @@ update message tags =
         ShowTag id ->
             ( tags, Navigation.newUrl ("#tags/" ++ id) )
 
+        AddTag newTag ->
+            ( addTag newTag tags, Cmd.none )
 
         OnSave (Ok updatedTag) ->
             ( updateTag updatedTag tags, Cmd.none )

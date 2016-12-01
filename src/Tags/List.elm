@@ -1,6 +1,7 @@
 module Tags.List exposing (..)
 
 import Html exposing (..)
+import Html.Attributes exposing (..)
 import Tags.Models exposing (Tag)
 import Tags.Messages exposing (..)
 
@@ -17,5 +18,4 @@ list tags =
 
 tag : Tag -> Html Msg
 tag item =
-    li []
-      [ text item.id ]
+    li [] [ a [ href ( "#/tags/" ++ item.id ) ] [ text item.id ] ]
