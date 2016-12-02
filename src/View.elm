@@ -5,6 +5,7 @@ import Messages exposing (Msg(..))
 import Models exposing (Model)
 import Tags.Edit
 import Tags.List
+import Tags.New
 import Tags.Models exposing (TagId)
 import Routing exposing (Route(..))
 
@@ -20,6 +21,9 @@ page model =
     case model.route of
         TagsRoute ->
             Html.map TagsMsg (Tags.List.view model.tags)
+
+        NewTagRoute ->
+            Html.map TagsFormMsg (Tags.New.view)
 
         TagRoute id ->
             tagEditPage model id

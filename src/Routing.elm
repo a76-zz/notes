@@ -8,6 +8,7 @@ import UrlParser exposing (..)
 type Route
     = TagsRoute
     | TagRoute TagId
+    | NewTagRoute
     | NotFoundRoute
 
 
@@ -17,6 +18,7 @@ matchers =
         [ map TagsRoute top
         , map TagRoute (s "tags" </> string)
         , map TagsRoute (s "tags")
+        , map NewTagRoute (s "new-tag")
         ]
 
 

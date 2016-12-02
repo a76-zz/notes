@@ -1,7 +1,7 @@
 module Tags.Update exposing (..)
 
-import Tags.Messages exposing (Msg(..))
-import Tags.Models exposing (Tag, TagId)
+import Tags.Messages exposing (Msg(..), FormMsg(..))
+import Tags.Models exposing (..)
 -- import Tags.Commands exposing (save)
 import Navigation
 
@@ -36,11 +36,17 @@ update message tags =
         ShowTag id ->
             ( tags, Navigation.newUrl ("#tags/" ++ id) )
 
-        AddTag newTag ->
-            ( addTag newTag tags, Cmd.none )
-
         OnSave (Ok updatedTag) ->
             ( updateTag updatedTag tags, Cmd.none )
 
         OnSave (Err error) ->
             ( tags, Cmd.none )
+
+editTag : FormMsg -> List Tag -> Tag -> ( List Tag, Tag, Cmd FormMsg )
+editTag message tags tag =
+    case message of
+        Id value ->
+            ( tags, { tag | id = value }, Cmd.none )
+
+        Save ->
+            ( tag :: tags, new, Navigation.newUrl "#/tags")

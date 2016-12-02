@@ -9,4 +9,7 @@ type Msg
     | ShowTags
     | ShowTag TagId
     | OnSave (Result Http.Error Tag)
-    | AddTag Tag
+
+type FormMsg
+    = Id String
+    | Save

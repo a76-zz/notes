@@ -9,7 +9,13 @@ import Tags.Messages exposing (..)
 view : List Tag -> Html Msg
 view tags =
     div []
+    [
+        div []
         [ list tags ]
+
+        , div []
+        [ a [ href ("#/new-tag") ] [ text "Create New Tag" ] ]
+    ]
 
 list : List Tag -> Html Msg
 list tags =
